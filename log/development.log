@@ -640,3 +640,253 @@ Mysql2::Error: Unknown column 'receivers_count' in 'field list': UPDATE `emails`
   [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 3 LIMIT 1[0m
   [1m[35mContact Load (0.8ms)[0m  SELECT  `contacts`.* FROM `contacts`  WHERE `contacts`.`mailbox_id` = 3  ORDER BY `contacts`.`id` DESC LIMIT 1
   [1m[36mMailbox Load (0.7ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 4 LIMIT 1[0m
+  [1m[36mAttachment Load (0.6ms)[0m  [1mSELECT `attachments`.* FROM `attachments`[0m
+  [1m[35mContact Load (0.7ms)[0m  SELECT `contacts`.* FROM `contacts`
+  [1m[36mSQL (46.9ms)[0m  [1mDELETE FROM `contacts`[0m
+  [1m[35mSQL (55.2ms)[0m  DELETE FROM `mailboxes`
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `emails`[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `emails`
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM `receivers`[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `mailboxes` (`created_at`, `email`, `name`, `updated_at`) VALUES ('2014-10-05 04:55:50', 'shiksha@vinsol.com', 'Shiksha', '2014-10-05 04:55:50')[0m
+  [1m[35m (34.4ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `mailboxes` (`created_at`, `email`, `name`, `updated_at`) VALUES ('2014-10-05 04:55:59', 'amit@vinsol.com', 'Amit', '2014-10-05 04:55:59')
+  [1m[36m (27.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mMailbox Load (0.8ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.8ms)[0m  [1mSELECT `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.3ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `emails` (`content`, `created_at`, `mailbox_id`, `updated_at`) VALUES ('a', '2014-10-05 05:00:47', 9, '2014-10-05 05:00:47')[0m
+  [1m[35m (41.4ms)[0m  COMMIT
+  [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.8ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mReceiver Load (0.2ms)[0m  [1mSELECT `receivers`.* FROM `receivers`  WHERE `receivers`.`email_id` = 1[0m
+  [1m[35mMailbox Load (0.5ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1
+  [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.1ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `receivers` (`created_at`, `email_id`, `mailbox_id`, `updated_at`) VALUES ('2014-10-05 05:02:02', 1, 10, '2014-10-05 05:02:02')
+  [1m[36m (48.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `contacts` (`contact_mailbox_id`, `created_at`, `first_name`, `last_name`, `mailbox_id`, `ph_no`, `updated_at`) VALUES (10, '2014-10-05 05:04:01', 'Amit', 'Choudhary', 9, '2345', '2014-10-05 05:04:01')[0m
+  [1m[35m (52.7ms)[0m  COMMIT
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.2ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.2ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35mAttachment Load (0.6ms)[0m  SELECT `attachments`.* FROM `attachments`  WHERE `attachments`.`email_id` = 1
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.3ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.3ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mAttachment Load (0.7ms)[0m  [1mSELECT `attachments`.* FROM `attachments`  WHERE `attachments`.`email_id` = 1 AND `attachments`.`type` = 'Vedio'[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.4ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.2ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.1ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.3ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `attachments` (`created_at`, `email_id`, `file_name`, `type`, `updated_at`) VALUES ('2014-10-05 05:05:59', 1, 'song', 'Vedio', '2014-10-05 05:05:59')[0m
+  [1m[35m (43.7ms)[0m  COMMIT
+  [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mEmail Load (0.5ms)[0m  SELECT `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 10
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.8ms)[0m  SELECT `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `emails` (`content`, `created_at`, `email_id`, `mailbox_id`, `updated_at`) VALUES ('B', '2014-10-05 05:07:27', 1, 10, '2014-10-05 05:07:27')[0m
+  [1m[35m (48.8ms)[0m  COMMIT
+  [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.7ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.5ms)[0m  [1mSELECT `emails`.* FROM `emails`  WHERE `emails`.`email_id` = 1[0m
+  [1m[35mMailbox Load (0.3ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.2ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.5ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`email_id` = 1  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.8ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 10 LIMIT 1[0m
+  [1m[35mMailbox Load (0.3ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (1.0ms)[0m  [1mSELECT `mailboxes`.* FROM `mailboxes` INNER JOIN `contacts` ON `mailboxes`.`id` = `contacts`.`contact_mailbox_id` WHERE `contacts`.`mailbox_id` = 9[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mContact Load (0.8ms)[0m  [1mSELECT `contacts`.* FROM `contacts`  WHERE `contacts`.`mailbox_id` = 9[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.4ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mAttachment Load (0.7ms)[0m  [1mSELECT `attachments`.* FROM `attachments`  WHERE `attachments`.`email_id` = 1[0m
+  [1m[35mAttachment Load (0.3ms)[0m  SELECT  `attachments`.* FROM `attachments`   ORDER BY `attachments`.`id` ASC LIMIT 1
+  [1m[36mAttachment Load (0.2ms)[0m  [1mSELECT  `attachments`.* FROM `attachments`   ORDER BY `attachments`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.3ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 1 LIMIT 1
+  [1m[36mAttachment Load (0.3ms)[0m  [1mSELECT  `attachments`.* FROM `attachments`   ORDER BY `attachments`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.2ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 1 LIMIT 1
+  [1m[36mMailbox Load (0.6ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1[0m
+  [1m[35mAttachment Load (0.4ms)[0m  SELECT  `attachments`.* FROM `attachments`   ORDER BY `attachments`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.4ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 1 LIMIT 1[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT `mailboxes`.* FROM `mailboxes` INNER JOIN `contacts` ON `mailboxes`.`id` = `contacts`.`contact_mailbox_id` WHERE `contacts`.`mailbox_id` = 9[0m
+  [1m[35mAttachment Load (0.4ms)[0m  SELECT  `attachments`.* FROM `attachments`   ORDER BY `attachments`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.4ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 1 LIMIT 1[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1
+  [1m[36mContact Load (0.4ms)[0m  [1mSELECT `contacts`.* FROM `contacts`  WHERE `contacts`.`mailbox_id` = 9[0m
+  [1m[35mAttachment Load (0.5ms)[0m  SELECT  `attachments`.* FROM `attachments`   ORDER BY `attachments`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.3ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 1 LIMIT 1[0m
+  [1m[35mMailbox Load (0.3ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1
+  [1m[36mContact Load (0.8ms)[0m  [1mSELECT  `contacts`.* FROM `contacts`  WHERE `contacts`.`mailbox_id` = 9  ORDER BY `contacts`.`id` ASC LIMIT 1[0m
+  [1m[35mAttachment Load (0.4ms)[0m  SELECT  `attachments`.* FROM `attachments`   ORDER BY `attachments`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.4ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 1 LIMIT 1[0m
+  [1m[35mMailbox Load (0.2ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1
+  [1m[36mContact Load (0.2ms)[0m  [1mSELECT  `contacts`.* FROM `contacts`  WHERE `contacts`.`mailbox_id` = 9  ORDER BY `contacts`.`id` ASC LIMIT 1[0m
+  [1m[35mAttachment Load (0.5ms)[0m  SELECT  `attachments`.* FROM `attachments`   ORDER BY `attachments`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.4ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 1 LIMIT 1[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1
+  [1m[36mContact Load (0.4ms)[0m  [1mSELECT  `contacts`.* FROM `contacts`  WHERE `contacts`.`mailbox_id` = 9  ORDER BY `contacts`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 10 LIMIT 1
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mContact Load (0.3ms)[0m  SELECT `contacts`.* FROM `contacts`  WHERE `contacts`.`mailbox_id` = 9
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mContact Load (0.3ms)[0m  SELECT  `contacts`.* FROM `contacts`  WHERE `contacts`.`mailbox_id` = 9  ORDER BY `contacts`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mContact Load (0.2ms)[0m  SELECT  `contacts`.* FROM `contacts`  WHERE `contacts`.`mailbox_id` = 9  ORDER BY `contacts`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.2ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 10 LIMIT 1[0m
+  [1m[35mMailbox Load (0.1ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mContact Load (0.2ms)[0m  [1mSELECT  `contacts`.* FROM `contacts`  WHERE `contacts`.`mailbox_id` = 9  ORDER BY `contacts`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.5ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mContact Load (0.4ms)[0m  [1mSELECT  `contacts`.* FROM `contacts`  WHERE `contacts`.`mailbox_id` = 9  ORDER BY `contacts`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 10 LIMIT 1
+  [1m[36mMailbox Load (0.5ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.1ms)[0m  [1mSELECT `mailboxes`.* FROM `mailboxes` INNER JOIN `contacts` ON `mailboxes`.`id` = `contacts`.`contact_mailbox_id` WHERE `contacts`.`mailbox_id` = 9[0m
+  [1m[35mMailbox Load (0.1ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.2ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.1ms)[0m  SELECT `mailboxes`.* FROM `mailboxes` INNER JOIN `contacts` ON `mailboxes`.`id` = `contacts`.`contact_mailbox_id` WHERE `contacts`.`mailbox_id` = 9
+  [1m[36mEmail Load (0.6ms)[0m  [1mSELECT  `emails`.* FROM `emails`   ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.5ms)[0m  SELECT  `emails`.* FROM `emails`   ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1[0m
+  [1m[35mEmail Load (0.3ms)[0m  SELECT  `emails`.* FROM `emails`   ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.3ms)[0m  [1mSELECT  `emails`.* FROM `emails`   ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.4ms)[0m  SELECT  `emails`.* FROM `emails`   ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.2ms)[0m  [1mSELECT  `emails`.* FROM `emails`   ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.5ms)[0m  SELECT  `emails`.* FROM `emails`   ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.2ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1[0m
+  [1m[35mEmail Load (0.4ms)[0m  SELECT  `emails`.* FROM `emails`   ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.4ms)[0m  [1mSELECT  `emails`.* FROM `emails`   ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.3ms)[0m  SELECT  `emails`.* FROM `emails`   ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.4ms)[0m  [1mSELECT  `emails`.* FROM `emails`   ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.3ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1
+  [1m[36mMailbox Load (0.5ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1
+  [1m[36mEmail Load (0.8ms)[0m  [1mSELECT `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 10[0m
+  [1m[35mMailbox Load (0.1ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1
+  [1m[36mEmail Load (1.0ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 10  ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.3ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1
+  [1m[36mEmail Load (0.3ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 10  ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.1ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 1 LIMIT 1
+  [1m[36mMailbox Load (0.1ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mEmail Load (0.4ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 10  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mEmail Load (0.3ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 10  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.2ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mEmail Load (0.1ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 10  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.2ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 1 LIMIT 1[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.3ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.4ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.3ms)[0m  SELECT `emails`.* FROM `emails`  WHERE `emails`.`email_id` = 1
+  [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.1ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.4ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.4ms)[0m  [1mSELECT `emails`.* FROM `emails`  WHERE `emails`.`email_id` = 1[0m
+  [1m[35mMailbox Load (0.3ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.3ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35mReceiver Load (0.5ms)[0m  SELECT `receivers`.* FROM `receivers`  WHERE `receivers`.`email_id` = 1
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.3ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.5ms)[0m  [1mSELECT `mailboxes`.* FROM `mailboxes` INNER JOIN `receivers` ON `mailboxes`.`id` = `receivers`.`mailbox_id` WHERE `receivers`.`email_id` = 1[0m
+  [1m[35mMailbox Load (0.3ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.4ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.5ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.3ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.3ms)[0m  SELECT `mailboxes`.* FROM `mailboxes` INNER JOIN `receivers` ON `mailboxes`.`id` = `receivers`.`mailbox_id` WHERE `receivers`.`email_id` = 1
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.7ms)[0m  SELECT `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9
+  [1m[36mMailbox Load (0.2ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mReceiver Load (0.4ms)[0m  SELECT `receivers`.* FROM `receivers`  WHERE `receivers`.`mailbox_id` = 9
+  [1m[36mReceiver Load (0.7ms)[0m  [1mSELECT `receivers`.* FROM `receivers`[0m
+  [1m[35mMailbox Load (0.5ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mMailbox Load (0.3ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1
+  [1m[36mEmail Load (0.3ms)[0m  [1mSELECT `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 10[0m
+  [1m[35mMailbox Load (0.5ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1
+  [1m[36mEmail Load (0.3ms)[0m  [1mSELECT `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 10[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1
+  [1m[36mEmail Load (0.3ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 10  ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.5ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1
+  [1m[36mEmail Load (0.4ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 10  ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35mReceiver Load (0.8ms)[0m  SELECT `receivers`.* FROM `receivers`  WHERE `receivers`.`email_id` = 2
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mEmail Load (0.4ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 10  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `receivers` (`created_at`, `email_id`, `mailbox_id`, `updated_at`) VALUES ('2014-10-05 06:39:58', 2, 9, '2014-10-05 06:39:58')
+  [1m[36m (46.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mReceiver Load (0.8ms)[0m  SELECT `receivers`.* FROM `receivers`
+  [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mEmail Load (0.3ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 10  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mReceiver Load (0.6ms)[0m  [1mSELECT `receivers`.* FROM `receivers`  WHERE `receivers`.`email_id` = 2[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mReceiver Load (0.7ms)[0m  [1mSELECT `receivers`.* FROM `receivers`  WHERE `receivers`.`mailbox_id` = 9[0m
+  [1m[35mMailbox Load (0.2ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mReceiver Load (0.3ms)[0m  SELECT `receivers`.* FROM `receivers`  WHERE `receivers`.`mailbox_id` = 9
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mReceiver Load (0.2ms)[0m  SELECT `receivers`.* FROM `receivers`  WHERE `receivers`.`mailbox_id` = 9
+  [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mReceiver Load (0.1ms)[0m  SELECT `receivers`.* FROM `receivers`  WHERE `receivers`.`mailbox_id` = 9
+  [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.3ms)[0m  SELECT `emails`.* FROM `emails` INNER JOIN `receivers` ON `emails`.`id` = `receivers`.`email_id` WHERE `receivers`.`mailbox_id` = 9
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.1ms)[0m  SELECT `emails`.* FROM `emails` INNER JOIN `receivers` ON `emails`.`id` = `receivers`.`email_id` WHERE `receivers`.`mailbox_id` = 9
+  [1m[36mMailbox Load (0.2ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.1ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.5ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.4ms)[0m  SELECT `emails`.* FROM `emails` INNER JOIN `receivers` ON `emails`.`id` = `receivers`.`email_id` WHERE `receivers`.`mailbox_id` = 9
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.3ms)[0m  SELECT `emails`.* FROM `emails` INNER JOIN `receivers` ON `emails`.`id` = `receivers`.`email_id` WHERE `receivers`.`mailbox_id` = 9
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.2ms)[0m  SELECT `emails`.* FROM `emails` INNER JOIN `receivers` ON `emails`.`id` = `receivers`.`email_id` WHERE `receivers`.`mailbox_id` = 9
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.3ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.7ms)[0m  [1mSELECT `mailboxes`.* FROM `mailboxes` INNER JOIN `emails` ON `mailboxes`.`id` = `emails`.`mailbox_id` INNER JOIN `receivers` ON `emails`.`id` = `receivers`.`email_id` WHERE `receivers`.`mailbox_id` = 9[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO `mailboxes` (`created_at`, `email`, `name`, `updated_at`) VALUES ('2014-10-05 07:04:05', 'shruti@vinsol.com', 'Shruti', '2014-10-05 07:04:05')[0m
+  [1m[35m (33.7ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO `emails` (`content`, `created_at`, `mailbox_id`, `updated_at`) VALUES ('Hi Shiksha', '2014-10-05 07:05:45', 11, '2014-10-05 07:05:45')
+  [1m[36m (41.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `emails` (`content`, `created_at`, `mailbox_id`, `updated_at`) VALUES ('Hi Shiksha', '2014-10-05 07:05:54', 11, '2014-10-05 07:05:54')[0m
+  [1m[35m (45.8ms)[0m  COMMIT
+  [1m[36mReceiver Load (0.6ms)[0m  [1mSELECT `receivers`.* FROM `receivers`  WHERE `receivers`.`email_id` = 4[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `emails` (`content`, `created_at`, `mailbox_id`, `updated_at`) VALUES ('Hi Shiksha', '2014-10-05 07:06:20', 11, '2014-10-05 07:06:20')[0m
+  [1m[35m (47.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `receivers` (`created_at`, `email_id`, `mailbox_id`, `updated_at`) VALUES ('2014-10-05 07:06:20', 5, 9, '2014-10-05 07:06:20')
+  [1m[36m (41.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mMailbox Load (0.8ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.2ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.1ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.9ms)[0m  SELECT `mailboxes`.* FROM `mailboxes` INNER JOIN `emails` ON `mailboxes`.`id` = `emails`.`mailbox_id` INNER JOIN `receivers` ON `emails`.`id` = `receivers`.`email_id` WHERE `receivers`.`mailbox_id` = 9
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.9ms)[0m  SELECT `emails`.* FROM `emails` INNER JOIN `receivers` ON `emails`.`id` = `receivers`.`email_id` WHERE `receivers`.`mailbox_id` = 9
+  [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.5ms)[0m  SELECT `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9
