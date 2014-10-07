@@ -890,3 +890,327 @@ Mysql2::Error: Unknown column 'receivers_count' in 'field list': UPDATE `emails`
   [1m[35mEmail Load (0.9ms)[0m  SELECT `emails`.* FROM `emails` INNER JOIN `receivers` ON `emails`.`id` = `receivers`.`email_id` WHERE `receivers`.`mailbox_id` = 9
   [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
   [1m[35mEmail Load (0.5ms)[0m  SELECT `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (218.8ms)[0m  ALTER TABLE `emails` DROP `receiver_count`
+  [1m[36mSQL (36.9ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140930131734'[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (327.7ms)[0m  ALTER TABLE `emails` ADD `receiver_count` int(11)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140930131734')
+  [1m[36m (39.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddSubjectColumnToEmail (20141005083902)
+  [1m[35m (303.8ms)[0m  ALTER TABLE `emails` ADD `subject` text
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141005083902')
+  [1m[36m (45.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to ChangeReceiverCountDefault (20141005090002)
+  [1m[35m (123.7ms)[0m  ALTER TABLE `emails` CHANGE `receiver_count` `receiver_count` int(11) DEFAULT 0
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141005090002')
+  [1m[36m (29.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to ChangeReceiverCountDefault (20141005090002)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (333.6ms)[0m  ALTER TABLE `emails` DROP `receiver_count`
+  [1m[36mSQL (47.4ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140930131734'[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddColumnToEmail (20140930131734)
+  [1m[35m (308.1ms)[0m  ALTER TABLE `emails` ADD `receivers_count` int(11)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140930131734')
+  [1m[36m (29.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.7ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to ChangeReceiverCountDefault (20141005090741)
+  [1m[35m (108.4ms)[0m  ALTER TABLE `emails` CHANGE `receivers_count` `receivers_count` int(11) DEFAULT 0
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141005090741')
+  [1m[36m (39.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `emails` (`created_at`, `subject`, `updated_at`) VALUES ('2014-10-05 09:24:23', 'No Subject', '2014-10-05 09:24:23')
+  [1m[36m (46.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mReceiver Load (0.4ms)[0m  SELECT `receivers`.* FROM `receivers`  WHERE `receivers`.`email_id` = 17
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `receivers` (`created_at`, `email_id`, `updated_at`) VALUES ('2014-10-05 09:24:33', 17, '2014-10-05 09:24:33')
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE `emails` SET `receivers_count` = COALESCE(`receivers_count`, 0) + 1 WHERE `emails`.`id` = 17[0m
+  [1m[35m (370.9ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mEmail Load (0.8ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 17 LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO `receivers` (`created_at`, `email_id`, `updated_at`) VALUES ('2014-10-05 09:25:47', 17, '2014-10-05 09:25:47')[0m
+  [1m[35mSQL (0.7ms)[0m  UPDATE `emails` SET `receivers_count` = COALESCE(`receivers_count`, 0) + 1 WHERE `emails`.`id` = 17
+  [1m[36m (92.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO `receivers` (`created_at`, `email_id`, `updated_at`) VALUES ('2014-10-05 09:27:17', 17, '2014-10-05 09:27:17')[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE `emails` SET `receivers_count` = COALESCE(`receivers_count`, 0) + 1 WHERE `emails`.`id` = 17
+  [1m[36m (91.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO `receivers` (`created_at`, `email_id`, `updated_at`) VALUES ('2014-10-05 09:27:31', 17, '2014-10-05 09:27:31')[0m
+  [1m[35mSQL (0.8ms)[0m  UPDATE `emails` SET `receivers_count` = COALESCE(`receivers_count`, 0) + 1 WHERE `emails`.`id` = 17
+  [1m[36m (97.6ms)[0m  [1mCOMMIT[0m
+  [1m[36mEmail Load (0.3ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 17 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mEmail Load (0.7ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 17 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mEmail Load (0.3ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 17 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mEmail Load (0.5ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 17 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mEmail Load (0.3ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 17 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mEmail Load (0.4ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 17 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mEmail Load (0.3ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 17 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mEmail Load (0.4ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 17 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddCoulumnToMailbox (20141005100228)
+  [1m[35m (302.0ms)[0m  ALTER TABLE `mailboxes` ADD `sent_emails_count` int(11) DEFAULT 0
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141005100228')
+  [1m[36m (35.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mMailbox Load (0.6ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[36mMailbox Load (0.5ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.7ms)[0m  SELECT `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mMailbox Load (0.9ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `emails` (`created_at`, `mailbox_id`, `subject`, `updated_at`) VALUES ('2014-10-05 10:16:00', 9, 'No Subject', '2014-10-05 10:16:00')
+  [1m[36mSQL (1.2ms)[0m  [1mUPDATE `mailboxes` SET `emails_count` = COALESCE(`emails_count`, 0) + 1 WHERE `mailboxes`.`id` = 9[0m
+Mysql2::Error: Unknown column 'emails_count' in 'field list': UPDATE `mailboxes` SET `emails_count` = COALESCE(`emails_count`, 0) + 1 WHERE `mailboxes`.`id` = 9
+  [1m[35m (93.2ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1
+  [1m[36mMailbox Load (0.5ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1[0m
+  [1m[35mMailbox Load (0.3ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1
+  [1m[36mMailbox Load (0.7ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `emails` (`created_at`, `mailbox_id`, `subject`, `updated_at`) VALUES ('2014-10-05 10:19:28', 9, 'No Subject', '2014-10-05 10:19:28')
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE `mailboxes` SET `emails_count` = COALESCE(`emails_count`, 0) + 1 WHERE `mailboxes`.`id` = 9[0m
+Mysql2::Error: Unknown column 'emails_count' in 'field list': UPDATE `mailboxes` SET `emails_count` = COALESCE(`emails_count`, 0) + 1 WHERE `mailboxes`.`id` = 9
+  [1m[35m (88.9ms)[0m  ROLLBACK
+  [1m[36mMailbox Load (0.2ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1[0m
+  [1m[35mMailbox Load (0.2ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `emails` (`created_at`, `mailbox_id`, `subject`, `updated_at`) VALUES ('2014-10-05 10:20:57', 9, 'No Subject', '2014-10-05 10:20:57')[0m
+  [1m[35mSQL (0.7ms)[0m  UPDATE `mailboxes` SET `sent_emails_count` = COALESCE(`sent_emails_count`, 0) + 1 WHERE `mailboxes`.`id` = 9
+  [1m[36m (102.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mMailbox Load (0.9ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mMailbox Load (2.1ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1[0m
+  [1m[35mMailbox Load (0.7ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `emails` (`created_at`, `mailbox_id`, `subject`, `updated_at`) VALUES ('2014-10-05 10:21:29', 9, 'No Subject', '2014-10-05 10:21:29')[0m
+  [1m[35mSQL (0.7ms)[0m  UPDATE `mailboxes` SET `sent_emails_count` = COALESCE(`sent_emails_count`, 0) + 1 WHERE `mailboxes`.`id` = 9
+  [1m[36m (105.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mMailbox Load (0.9ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mMailbox Load (0.9ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddSpamColumnToEmail (20141005104828)
+  [1m[35m (463.4ms)[0m  ALTER TABLE `emails` ADD `spam` tinyint(1)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141005104828')
+  [1m[36m (46.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to AddSpamColumnToEmail (20141005104828)
+  [1m[36m (280.6ms)[0m  [1mALTER TABLE `emails` DROP `spam`[0m
+  [1m[35mSQL (47.6ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20141005104828'
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddSpamColumnToEmail (20141005104828)
+  [1m[35m (261.5ms)[0m  ALTER TABLE `emails` ADD `spam` tinyint(1) DEFAULT 0
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141005104828')
+  [1m[36m (45.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mMailbox Load (0.5ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (1.9ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.5ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.2ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mAttachment Load (0.5ms)[0m  [1mSELECT `attachments`.* FROM `attachments`  WHERE `attachments`.`email_id` = 1[0m
+  [1m[35mMailbox Load (0.6ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.5ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35mAttachment Load (0.5ms)[0m  SELECT `attachments`.* FROM `attachments`  WHERE `attachments`.`email_id` = 1
+  [1m[36mMailbox Load (0.6ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.4ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mAttachment Load (0.8ms)[0m  [1mSELECT `attachments`.* FROM `attachments`  WHERE `attachments`.`email_id` = 1 AND `attachments`.`type` = 'Text'[0m
+  [1m[35mMailbox Load (0.6ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.4ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO `attachments` (`created_at`, `email_id`, `type`, `updated_at`) VALUES ('2014-10-05 11:03:22', 1, 'Text', '2014-10-05 11:03:22')[0m
+  [1m[35m (28.2ms)[0m  COMMIT
+  [1m[36mMailbox Load (0.9ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.4ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `attachments` (`created_at`, `email_id`, `type`, `updated_at`) VALUES ('2014-10-05 11:04:52', 1, 'Text', '2014-10-05 11:04:52')
+  [1m[36m (78.6ms)[0m  [1mCOMMIT[0m
+  [1m[36mMailbox Load (0.2ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.1ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `attachments` (`created_at`, `email_id`, `type`, `updated_at`) VALUES ('2014-10-05 11:05:02', 1, 'Text', '2014-10-05 11:05:02')
+  [1m[36m (30.6ms)[0m  [1mCOMMIT[0m
+  [1m[36mMailbox Load (0.2ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.4ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `attachments` (`created_at`, `email_id`, `type`, `updated_at`) VALUES ('2014-10-05 11:16:02', 1, 'Text', '2014-10-05 11:16:02')
+  [1m[36m (42.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mMailbox Load (0.2ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.3ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mEmail Load (0.8ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE `emails` SET `spam` = 1, `updated_at` = '2014-10-05 11:16:48' WHERE `emails`.`id` = 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO `attachments` (`created_at`, `email_id`, `type`, `updated_at`) VALUES ('2014-10-05 11:16:40', 1, 'Text', '2014-10-05 11:16:40')[0m
+  [1m[35m (42.7ms)[0m  COMMIT
+  [1m[36mMailbox Load (0.5ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.7ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.8ms)[0m  SELECT `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9
+  [1m[36mMailbox Load (0.7ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.6ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.6ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.3ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.5ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.4ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mAttachment Load (0.8ms)[0m  [1mSELECT `attachments`.* FROM `attachments`  WHERE `attachments`.`email_id` = 1[0m
+  [1m[35mMailbox Load (0.6ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mEmail Load (0.4ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35mAttachment Load (0.9ms)[0m  SELECT `attachments`.* FROM `attachments`  WHERE `attachments`.`email_id` = 1 AND `attachments`.`type` = 'Text'
+  [1m[36mMailbox Load (0.6ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mEmail Load (0.4ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 9  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (1.0ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mEmail Load (0.9ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 11  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mAttachment Load (0.8ms)[0m  [1mSELECT `attachments`.* FROM `attachments`  WHERE `attachments`.`email_id` = 3 AND `attachments`.`type` = 'Text'[0m
+  [1m[35mMailbox Load (0.5ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1
+  [1m[36mEmail Load (0.9ms)[0m  [1mSELECT `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 11[0m
+  [1m[35mMailbox Load (0.6ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1
+  [1m[36mMailbox Load (0.6ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mEmail Load (0.4ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 11  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36mAttachment Load (0.8ms)[0m  [1mSELECT `attachments`.* FROM `attachments`  WHERE `attachments`.`email_id` = 3[0m
+  [1m[35mMailbox Load (0.6ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1
+  [1m[36mEmail Load (0.4ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 11  ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35mAttachment Load (0.4ms)[0m  SELECT `attachments`.* FROM `attachments`  WHERE `attachments`.`email_id` = 3 AND `attachments`.`type` = 'Text'
+  [1m[36mMailbox Load (0.6ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mEmail Load (0.5ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 11  ORDER BY `emails`.`id` ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `attachments` (`created_at`, `email_id`, `type`, `updated_at`) VALUES ('2014-10-05 11:38:25', 3, 'Text', '2014-10-05 11:38:25')
+  [1m[36mEmail Load (0.9ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE `emails` SET `spam` = 1, `updated_at` = '2014-10-05 11:38:25' WHERE `emails`.`id` = 3
+  [1m[36m (41.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mMailbox Load (0.6ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1
+  [1m[36mEmail Load (1.1ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 11  ORDER BY `emails`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.5ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1
+  [1m[36mEmail Load (0.8ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 11  ORDER BY `emails`.`id` DESC LIMIT 1[0m
+  [1m[35mMailbox Load (0.6ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1
+  [1m[36mEmail Load (0.4ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 11  ORDER BY `emails`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO `attachments` (`created_at`, `email_id`, `type`, `updated_at`) VALUES ('2014-10-05 11:58:25', 5, 'Audio', '2014-10-05 11:58:25')[0m
+  [1m[35m (92.5ms)[0m  COMMIT
+  [1m[36mMailbox Load (0.6ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mEmail Load (0.4ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 11  ORDER BY `emails`.`id` DESC LIMIT 1
+  [1m[36mMailbox Load (0.5ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.6ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mContact Load (0.4ms)[0m  [1mSELECT `contacts`.* FROM `contacts`  WHERE `contacts`.`mailbox_id` = 9[0m
+  [1m[35mMailbox Load (0.5ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1
+  [1m[36mMailbox Load (0.5ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mMailbox Load (0.5ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1
+  [1m[36mEmail Load (0.8ms)[0m  [1mSELECT `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 11[0m
+  [1m[35mMailbox Load (0.6ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mMailbox Load (0.7ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 11 LIMIT 1
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 11 LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `emails` (`content`, `created_at`, `mailbox_id`, `subject`, `updated_at`) VALUES ('Helo', '2014-10-05 12:23:06', 11, 'No Subject', '2014-10-05 12:23:06')
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE `mailboxes` SET `sent_emails_count` = COALESCE(`sent_emails_count`, 0) + 1 WHERE `mailboxes`.`id` = 11[0m
+  [1m[35m (72.5ms)[0m  COMMIT
+  [1m[36mMailbox Load (0.8ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mEmail Load (0.9ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 11  ORDER BY `emails`.`id` DESC LIMIT 1
+  [1m[36mMailbox Load (0.5ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mEmail Load (0.4ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 11  ORDER BY `emails`.`id` DESC LIMIT 1
+  [1m[36mReceiver Load (0.8ms)[0m  [1mSELECT `receivers`.* FROM `receivers`  WHERE `receivers`.`email_id` = 22[0m
+  [1m[35mMailbox Load (0.5ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1
+  [1m[36mEmail Load (0.4ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 11  ORDER BY `emails`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mEmail Load (0.9ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 22 LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `receivers` (`created_at`, `email_id`, `mailbox_id`, `updated_at`) VALUES ('2014-10-05 12:23:43', 22, 9, '2014-10-05 12:23:43')
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE `emails` SET `receivers_count` = COALESCE(`receivers_count`, 0) + 1 WHERE `emails`.`id` = 22[0m
+  [1m[35m (97.3ms)[0m  ROLLBACK
+  [1m[36mMailbox Load (0.6ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mEmail Load (1.2ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 11  ORDER BY `emails`.`id` DESC LIMIT 1
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35mEmail Load (0.8ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 22 LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `receivers` (`created_at`, `email_id`, `mailbox_id`, `updated_at`) VALUES ('2014-10-05 12:24:23', 22, 9, '2014-10-05 12:24:23')[0m
+  [1m[35mSQL (0.7ms)[0m  UPDATE `emails` SET `receivers_count` = COALESCE(`receivers_count`, 0) + 1 WHERE `emails`.`id` = 22
+  [1m[36m (89.5ms)[0m  [1mROLLBACK[0m
+  [1m[35mMailbox Load (0.2ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1
+  [1m[36mEmail Load (0.6ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 11  ORDER BY `emails`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mEmail Load (0.5ms)[0m  [1mSELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 22 LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `receivers` (`created_at`, `email_id`, `mailbox_id`, `updated_at`) VALUES ('2014-10-05 12:24:30', 22, 9, '2014-10-05 12:24:30')
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE `emails` SET `receivers_count` = COALESCE(`receivers_count`, 0) + 1 WHERE `emails`.`id` = 22[0m
+  [1m[35m (92.4ms)[0m  ROLLBACK
+  [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mEmail Load (0.8ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 11  ORDER BY `emails`.`id` DESC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mEmail Load (0.7ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 22 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `receivers` (`created_at`, `email_id`, `mailbox_id`, `updated_at`) VALUES ('2014-10-05 12:25:28', 22, 9, '2014-10-05 12:25:28')[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE `emails` SET `receivers_count` = COALESCE(`receivers_count`, 0) + 1 WHERE `emails`.`id` = 22
+  [1m[36m (94.4ms)[0m  [1mROLLBACK[0m
+  [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mEmail Load (0.7ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 11  ORDER BY `emails`.`id` DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mEmail Load (0.6ms)[0m  SELECT  `emails`.* FROM `emails`  WHERE `emails`.`id` = 22 LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO `receivers` (`created_at`, `email_id`, `mailbox_id`, `updated_at`) VALUES ('2014-10-05 12:25:57', 22, 9, '2014-10-05 12:25:57')[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE `emails` SET `receivers_count` = COALESCE(`receivers_count`, 0) + 1 WHERE `emails`.`id` = 22
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 11 LIMIT 1[0m
+  [1m[35mMailbox Load (0.6ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `contacts` (`contact_mailbox_id`, `created_at`, `first_name`, `mailbox_id`, `updated_at`) VALUES (11, '2014-10-05 12:25:57', 'Shruti', 9, '2014-10-05 12:25:57')[0m
+  [1m[35m (90.3ms)[0m  COMMIT
+  [1m[36mMailbox Load (0.8ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mContact Load (0.7ms)[0m  SELECT  `contacts`.* FROM `contacts`  WHERE `contacts`.`mailbox_id` = 9  ORDER BY `contacts`.`id` DESC LIMIT 1
+  [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mContact Load (0.7ms)[0m  SELECT `contacts`.* FROM `contacts`  WHERE `contacts`.`mailbox_id` = 11
+  [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mContact Exists (0.8ms)[0m  SELECT  1 AS one FROM `contacts`  WHERE `contacts`.`mailbox_id` = 11 LIMIT 1
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mEmail Load (1.0ms)[0m  SELECT `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 11
+  [1m[36mMailbox Load (0.3ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mEmail Load (0.4ms)[0m  SELECT `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 11
+  [1m[36mMailbox Load (0.5ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mEmail Load (1.0ms)[0m  [1mSELECT `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 11[0m
+  [1m[35mEmail Load (0.8ms)[0m  SELECT `emails`.* FROM `emails` INNER JOIN `receivers` ON `emails`.`id` = `receivers`.`email_id` WHERE `receivers`.`mailbox_id` = 11
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO `mailboxes` (`created_at`, `updated_at`) VALUES ('2014-10-05 12:45:02', '2014-10-05 12:45:02')[0m
+  [1m[35m (93.3ms)[0m  COMMIT
+  [1m[36mMailbox Load (0.9ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35mMailbox Load (0.2ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 12 LIMIT 1
+  [1m[36mMailbox Load (0.2ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 12 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `emails` (`created_at`, `mailbox_id`, `spam`, `subject`, `updated_at`) VALUES ('2014-10-05 12:45:27', 12, 1, 'No Subject', '2014-10-05 12:45:27')
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE `mailboxes` SET `sent_emails_count` = COALESCE(`sent_emails_count`, 0) + 1 WHERE `mailboxes`.`id` = 12[0m
+  [1m[35m (95.2ms)[0m  COMMIT
+  [1m[36mMailbox Load (0.6ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mEmail Load (1.0ms)[0m  [1mSELECT `emails`.* FROM `emails`  WHERE `emails`.`mailbox_id` = 12[0m
+  [1m[35mEmail Load (0.8ms)[0m  SELECT `emails`.* FROM `emails` INNER JOIN `receivers` ON `emails`.`id` = `receivers`.`email_id` WHERE `receivers`.`mailbox_id` = 12
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM `mailboxes` WHERE `mailboxes`.`id` = 12[0m
+  [1m[35m (96.2ms)[0m  COMMIT

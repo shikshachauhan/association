@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141001041338) do
+ActiveRecord::Schema.define(version: 20141005104828) do
 
   create_table "attachments", force: true do |t|
     t.string   "file_name"
@@ -41,17 +41,25 @@ ActiveRecord::Schema.define(version: 20141001041338) do
     t.integer  "email_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "receiver_count"
+    t.text     "subject"
+    t.integer  "receivers_count", default: 0
+    t.boolean  "spam",            default: false
   end
 
   add_index "emails", ["email_id"], name: "index_emails_on_email_id", using: :btree
   add_index "emails", ["mailbox_id"], name: "index_emails_on_mailbox_id", using: :btree
+
+  create_table "emails_mailboxes", id: false, force: true do |t|
+    t.integer "email_id"
+    t.integer "mailbox_id"
+  end
 
   create_table "mailboxes", force: true do |t|
     t.string   "name"
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "sent_emails_count", default: 0
   end
 
   create_table "receivers", force: true do |t|

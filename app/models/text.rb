@@ -1,2 +1,2 @@
-class Text < Attachment
+class Text < Attachment  
 end
