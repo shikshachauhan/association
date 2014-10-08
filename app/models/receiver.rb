@@ -7,6 +7,7 @@ class Receiver < ActiveRecord::Base
 
   protected
   def check_receiver_upper_limit
+    # FIXME_AK: Why reload?
     self.email.reload
     self.email.receivers_count < 20
   end

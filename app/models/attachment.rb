@@ -5,6 +5,7 @@ class Attachment < ActiveRecord::Base
   scope :texts, -> { where(type: 'Text') }
   scope :zips, -> { where(type: 'Zip') }
 
+  # FIXME_AK: Can this be a part of validation or we can do this in before_save?
   after_save :set_email_as_spam, if: -> { type == 'Text' }
 
   protected
