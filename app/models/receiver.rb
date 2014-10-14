@@ -2,14 +2,15 @@ class Receiver < ActiveRecord::Base
   belongs_to :email, counter_cache: true
   belongs_to :mailbox
 
-  before_create :check_receiver_upper_limit
-  after_save :save_contact_in_receiver
+  before_save :receiver_overflow, if: -> { email_id? }
+  after_save :save_contact_in_receiver, if: -> { mailbox_id? }
+
+  validates_associated :email
 
   protected
-  def check_receiver_upper_limit
-    # FIXME_AK: Why reload?
-    self.email.reload
-    self.email.receivers_count < 20
+
+  def receiver_overflow
+    email.receivers.count < 20
   end
 
   def save_contact_in_receiver
