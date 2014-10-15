@@ -2968,3 +2968,20 @@ Migrating to RemoveColumnFromLog (20141014042028)
   [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `receivers` (`created_at`, `email_id`, `updated_at`) VALUES ('2014-10-14 04:44:05', 75, '2014-10-14 04:44:05')[0m
   [1m[35mSQL (0.4ms)[0m  UPDATE `emails` SET `receivers_count` = COALESCE(`receivers_count`, 0) + 1 WHERE `emails`.`id` = 75
   [1m[36m (40.4ms)[0m  [1mROLLBACK[0m
+  [1m[36mMailbox Load (0.7ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.5ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.4ms)[0m  [1mSELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mContact Load (0.8ms)[0m  [1mSELECT `contacts`.* FROM `contacts`  WHERE `contacts`.`mailbox_id` = 9[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36mMailbox Load (0.8ms)[0m  [1mSELECT `mailboxes`.* FROM `mailboxes` INNER JOIN `contacts` ON `mailboxes`.`id` = `contacts`.`contact_mailbox_id` WHERE `contacts`.`mailbox_id` = 9[0m
+  [1m[35mMailbox Load (0.4ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO `mailboxes` (`created_at`, `updated_at`) VALUES ('2014-10-15 04:20:13', '2014-10-15 04:20:13')
+  [1m[36mContact Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM `contacts`  WHERE (`contacts`.`contact_mailbox_id` = BINARY 25 AND `contacts`.`mailbox_id` = 9) LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `contacts` (`contact_mailbox_id`, `created_at`, `mailbox_id`, `updated_at`) VALUES (25, '2014-10-15 04:20:13', 9, '2014-10-15 04:20:13')
+  [1m[36mContact Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `contacts`  WHERE (`contacts`.`contact_mailbox_id` = BINARY 9 AND `contacts`.`mailbox_id` = 25) LIMIT 1[0m
+  [1m[35mMailbox Load (0.5ms)[0m  SELECT  `mailboxes`.* FROM `mailboxes`  WHERE `mailboxes`.`id` = 9 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `contacts` (`contact_mailbox_id`, `created_at`, `first_name`, `mailbox_id`, `updated_at`) VALUES (9, '2014-10-15 04:20:13', 'defrgver', 25, '2014-10-15 04:20:13')[0m
+  [1m[35mContact Exists (0.5ms)[0m  SELECT  1 AS one FROM `contacts`  WHERE (`contacts`.`contact_mailbox_id` = BINARY 25 AND `contacts`.`mailbox_id` = 9) LIMIT 1
+  [1m[36m (82.4ms)[0m  [1mCOMMIT[0m

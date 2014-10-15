@@ -6,7 +6,6 @@ class Contact < ActiveRecord::Base
   after_save :generate_reverse_mapping
 
   validates :contact_mailbox_id, uniqueness: { scope: :mailbox_id }
-  validates :contact_mailbox_id
 
 
   protected
