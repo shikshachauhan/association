@@ -2985,3 +2985,8 @@ Migrating to RemoveColumnFromLog (20141014042028)
   [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `contacts` (`contact_mailbox_id`, `created_at`, `first_name`, `mailbox_id`, `updated_at`) VALUES (9, '2014-10-15 04:20:13', 'defrgver', 25, '2014-10-15 04:20:13')[0m
   [1m[35mContact Exists (0.5ms)[0m  SELECT  1 AS one FROM `contacts`  WHERE (`contacts`.`contact_mailbox_id` = BINARY 25 AND `contacts`.`mailbox_id` = 9) LIMIT 1
   [1m[36m (82.4ms)[0m  [1mCOMMIT[0m
+  [1m[36mMailbox Load (0.7ms)[0m  [1mSELECT `mailboxes`.* FROM `mailboxes`   ORDER BY id desc[0m
+  [1m[35mMailbox Load (0.7ms)[0m  SELECT `mailboxes`.* FROM `mailboxes`
+  [1m[36mMailbox Load (0.5ms)[0m  [1mSELECT `mailboxes`.* FROM `mailboxes`   ORDER BY id desc[0m
+  [1m[35mMailbox Load (0.9ms)[0m  SELECT `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`id` DESC
+  [1m[36mMailbox Load (0.9ms)[0m  [1mSELECT `mailboxes`.* FROM `mailboxes`   ORDER BY `mailboxes`.`name` DESC[0m

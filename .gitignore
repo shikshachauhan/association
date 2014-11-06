@@ -30,3 +30,5 @@ config/secrets.yml
 *.bowerrc
 bower.json
 a.out
+/config/database.yml
+/log/*
