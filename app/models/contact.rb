@@ -1,5 +1,6 @@
 class Contact < ActiveRecord::Base
   belongs_to :mailbox
+  # FIXME_AK: do we really need the foreign_key option here?
   belongs_to :contact_mailbox, class_name: 'Mailbox', foreign_key: 'contact_mailbox_id'
 
   before_create :set_first_name_if_not_given

@@ -1,5 +1,6 @@
 class Mailbox < ActiveRecord::Base
   has_many :sent_emails, class_name: Email
+  # FIXME_AK: dependent?
   has_many :contacts
   has_many :friends, source: :contact_mailbox, through: :contacts
 
@@ -14,6 +15,7 @@ class Mailbox < ActiveRecord::Base
 
   def check_if_spam_mailbox
     # FIXME_AK: We can reduce the query count and no need for self.
+    # Is it fixed?
     sent_emails.all?{ |email| email.spam } && received_emails.all?{ |email| email.spam }
   end
 

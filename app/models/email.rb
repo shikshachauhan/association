@@ -1,3 +1,6 @@
+# FIXME_AK: Move this to a separate file.
+# FIXME_AK: Make a separate directory named validators under app directory
+# and place this that file in the directory.
 class RangeValidator < ActiveModel::EachValidator
   CHECKS = { greater_than: :>,
              greater_than_or_equal_to: :>=,
@@ -19,8 +22,6 @@ class RangeValidator < ActiveModel::EachValidator
 end
 
 class Email < ActiveRecord::Base
-
-
   belongs_to :sending_mailbox, class_name: Mailbox, foreign_key: :mailbox_id, counter_cache: :sent_emails_count
   belongs_to :parent_email, class_name: Email, foreign_key: :email_id
 
@@ -33,6 +34,7 @@ class Email < ActiveRecord::Base
 
   before_create :set_subject, unless: -> { subject? }
   after_create :enter_log_record
+  # FIXME_AK: it should be check_mailbox_upper_limit
   before_save :check_mailbox_upperlimit, if: -> { mailbox_id? }
 
   validates :priority, range: { greater_than: nil, less_than: 5, other_than: 3 }, if: -> { priority? }  

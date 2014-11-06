@@ -1,3 +1,5 @@
+# FIXME_AK: Remove the unneeded gems and clutter.
+# FIXME_AK: Add version number for your gems.
 source 'https://rubygems.org'
 
 

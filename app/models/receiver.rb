@@ -1,7 +1,9 @@
 class Receiver < ActiveRecord::Base
+  # FIXME_AK: What purpose does counter_cache is serving here?
   belongs_to :email, counter_cache: true
   belongs_to :mailbox
 
+  # FIXME_AK: Can you explain the following checks.
   before_save :receiver_overflow, if: -> { email_id? }
   after_save :save_contact_in_receiver, if: -> { mailbox_id? }
 
